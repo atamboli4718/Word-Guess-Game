@@ -1,3 +1,25 @@
 body {
     background: url(../images/background.jpg);
     }
+.navbar {
+    height: 80px;
+}
+.navfont {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2rem;
+}
+.rightbox {
+    border:10px dashed crimson;
+}
+.leftbox {
+    border-left: 10px dashed crimson;
+    border-top: 10px dashed crimson;
+    border-bottom: 10px dashed crimson;
+}
+.gamecontainer {
+    margin: 5%;
+}
+h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+}
