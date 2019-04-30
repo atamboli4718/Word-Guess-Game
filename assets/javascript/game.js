@@ -34,11 +34,11 @@ document.onkeyup = function(event) {
     console.log(keysToPress.includes(guess));
     if (keysToPress.includes(guess)) {
         { if (computerGuess.includes(guess)
-            )}
+            /* )}
         else {
             alert("Oops! Please select a valid letter key. ")
         }
-    }
+    } */
 
 
     // the game loop
@@ -60,7 +60,18 @@ document.onkeyup = function(event) {
     }
 }
 
+/*
+flows to do:
 
+checking guess against computer guess:
+-if guess is not part of keysToPress, alert "opps..." and resume game.
+-if guess is part of already guess var aler user "looks like you have already used this letter!" resume game. (create a correctGuess var)
+-if the guess is a part of of keys to press, compare the guess to the computerguess. 
+    if guess is a subset of computerguess and is not in already guessed, take one off remaining guesses and log it in the current word. AND
+        mark that letter as part of the already guessed letters
+
+once remainingLetters goes to zero alert "Game over! Time to brush up on some 90's hits. Press ok to play again" rerun rungame function upon click
+once correctGuess var = ComputerGuess alert "Nice job! Press ok to play again" rerun rungame function
 
 
 
