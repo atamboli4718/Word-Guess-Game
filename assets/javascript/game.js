@@ -5,15 +5,15 @@ var correctGuesses = []; //tracks the correct letters the user has already guess
 var remainingLetters; //number of correct letters the user has not guessed yet. Used to push to the html
 var incorrrectGuesses;  // this is an empty array that will match the number of letters the user has guessed 
 
-function rungame(){
+function rungame() {
 // this is the selection of bands available for the computer to select from. Purposely chose none with spaces so I didn't have to deal withthat
-bandOptions = ["sublime", "tlc","jewel", "tupac", "oasis", "soundgarden", "beck","radiohead","weazer","genesis"] ;
+bandOptions = ["sublime", "tlc", "tupac", "beck"] ;
 
 // these are the characters available for the user to guess the band
 keysToPress = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] ;
 
 // this is the selection the coputer has made from the bandoptions var
-computerSelection = bandOptions[0];//Math.floor(Math.random() * bandoptions.length)]; xxx
+computerSelection = bandOptions[Math.floor(Math.random() * bandOptions.length)];
     console.log(computerSelection)
 
 //tracks letters already guessed that were incorrect
@@ -24,6 +24,8 @@ console.log(incorrrectGuesses);
 remainingLetters = bandOptions.length;
 console.log(remainingLetters);
 
+correctGuesses = [];
+console.log("correctGuesses = " + correctGuesses);
 }
 
 rungame();
@@ -32,6 +34,7 @@ document.onkeyup = function(event) {
     console.log(event.key);
     var guess = event.key;
     console.log(keysToPress.includes(guess));
+    console.log("incorrect Guesses = " + incorrrectGuesses);
     
     //if the key pressed is not a letter, or not part of keysToPress var
     if (!keysToPress.includes(guess)) {
@@ -44,23 +47,28 @@ document.onkeyup = function(event) {
     //if it is a valid key that has not been pressed and is part of the computerSelection, push to push to computer selection
     else if ((computerSelection.indexOf(guess)>-1)) { 
         correctGuesses.push(guess);
-        console.log("correct guesses "+correctGuesses);  
-        for (i=0; i<correctGuesses.length; i++) {
-            document.appendChild(correctGuesses[i]);
-         }
+        console.log("computerSelection length: " + computerSelection.length + "correctGuesses length: " + correctGuesses.length);
+        if (correctGuesses.length == computerSelection.length) {
+            alert("You won!");
+            rungame();
+        }
+        // console.log("correct guesses "+correctGuesses);  
+        // for (i=0; i<correctGuesses.length; i++) {
+           //document.appendChild(correctGuesses[i]);
+        // }
     }
     //if it is incorrect key that has not been pressed before and still has guesses. pushes to the incorrect guess var 
-    else if (incorrrectGuesses<10) {
+    else if (incorrrectGuesses.length<10) {
         incorrrectGuesses.push(guess);
         console.log (incorrrectGuesses);
         for (j=0; j<incorrrectGuesses; j++) {
-            document.appendChild(correctGuesses[i]);
+            //document.appendChild(correctGuesses[i]);
         }
     }
-    else if (incorrrectGuesses = 10) {
+    else if (incorrrectGuesses.length == 10) {
         alert("Looks like you're out of guesses! Would you like to play again?");
         console.log(incorrrectGuesses);
-        //function rungame();
+        rungame();
     }
 }
 
