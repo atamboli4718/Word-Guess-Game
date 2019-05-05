@@ -6,6 +6,8 @@ var remainingLetters; //number of correct letters the user has not guessed yet. 
 var incorrectGuesses;  // this is an empty array that will match the number of letters the user has guessed 
 var wins = 0
 
+window.onload = alert("Let's test your 90s music knowledge. Here's a few hints: Choose from 90's bands or musicians. Letters and numbers count. You get 8 chances. Good luck!");
+
 function rungame() {
 // this is the selection of bands available for the computer to select from. Purposely chose none with spaces so I didn't have to deal withthat
 bandOptions = ["sublime", "tlc", "tupac", "beck","rem","blur","blink182","u2"] ;
@@ -75,7 +77,7 @@ document.onkeyup = function(event) {
         }
     }
     //if it is incorrect key that has not been pressed before and still has guesses. pushes to the incorrect guess var 
-    else if (incorrectGuesses.length<10) {
+    else if (incorrectGuesses.length<7) {
         incorrectGuesses.push(guess);
         console.log (incorrectGuesses);
         for (j=0; j<incorrectGuesses; j++) {
@@ -83,8 +85,8 @@ document.onkeyup = function(event) {
         }
         document.getElementById("incorrectGuesses").innerHTML = incorrectGuesses;
     }
-    else if (incorrectGuesses.length == 10) {
-        alert("Looks like you're out of guesses! Would you like to play again?");
+    else if (incorrectGuesses.length == 7) {
+        alert("Time to brush up on your 90's music. The correct word was " + computerSelection);
         console.log(incorrectGuesses);
         //writes the number of wins to the page
         wins = 0;
