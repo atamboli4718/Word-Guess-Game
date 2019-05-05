@@ -8,10 +8,10 @@ var wins = 0
 
 function rungame() {
 // this is the selection of bands available for the computer to select from. Purposely chose none with spaces so I didn't have to deal withthat
-bandOptions = ["sublime", "tlc", "tupac", "beck"] ;
+bandOptions = ["sublime", "tlc", "tupac", "beck","rem","blur","blink182","u2"] ;
 
 // these are the characters available for the user to guess the band
-keysToPress = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] ;
+keysToPress = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z","1","2","3","4","5","6","7","8","9","0"];
 
 // this is the selection the coputer has made from the bandoptions var
 computerSelection = bandOptions[Math.floor(Math.random() * bandOptions.length)];
@@ -32,7 +32,7 @@ remainingLetters = computerSelection.length;
 console.log("remaining letters to guess: "+ remainingLetters);
 
 correctGuesses = [];
-document.getElementById("incorrectGuesses").innerHTML = '';
+document.getElementById("incorrectGuesses").innerHTML = '&nbsp;';
 document.getElementById("computerSelection").innerHTML = initialDashes.join(' ');
 
 }
@@ -73,10 +73,6 @@ document.onkeyup = function(event) {
             document.getElementById("wins").innerHTML = wins;
             rungame();
         }
-        // console.log("correct guesses "+correctGuesses);  
-        // for (i=0; i<correctGuesses.length; i++) {
-           //document.appendChild(correctGuesses[i]);
-        // }
     }
     //if it is incorrect key that has not been pressed before and still has guesses. pushes to the incorrect guess var 
     else if (incorrectGuesses.length<10) {
@@ -97,39 +93,3 @@ document.onkeyup = function(event) {
     }
 }
 
-
-
-/*
-flows to do:
-
-checking guess against computer guess:
--if guess is not part of keysToPress, alert "opps..." and resume game.
--if guess is part of already guess var aler user "looks like you have already used this letter!" resume game. (create a correctGuess var)
--if the guess is a part of of keys to press, compare the guess to the computerSelection. 
-    if guess is a subset of computerSelection and is not in already guessed, take one off remaining guesses and log it in the current word. AND
-        mark that letter as part of the already guessed letters
--if inin = 10, alert "Looks like you've reached limit of incorrect guesses, computer wins!", reveal computer guess and end game
-
-once remainingLetters goes to zero alert "Game over! Time to brush up on some 90's hits. Press ok to play again" rerun rungame function upon click
-once correctGuess var = computerSelection alert "Nice job! Press ok to play again" rerun rungame function
-- xxx denotes actions for later
-
-
-- Need to know how to place correct guesses in the blanks on the HTML file in the correct place.
-- adding all this to the HTML file.... I think it's document.getElementBYID("idexample").innerText=...
-
-
-
-
-
-
-// helpful for later: 
-// var res = str.toLowerCase(); 
-// document.getElementById("game").innerText=whoWins
-// while (remaingLetters > 0) {
-    //gamecode here
-    //show the input from the player
-    //update answers array and remainingLetters for every correct guess
-// }
-
-*/
