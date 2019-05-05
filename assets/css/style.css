@@ -8,14 +8,6 @@ body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 2rem;
 }
-.rightbox {
-    border:10px dashed crimson;
-}
-.leftbox {
-    border-left: 10px dashed crimson;
-    border-top: 10px dashed crimson;
-    border-bottom: 10px dashed crimson;
-}
 .gamecontainer {
     margin: 5%;
 }
