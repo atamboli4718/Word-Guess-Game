@@ -4,9 +4,9 @@ var computerSelection; //the selection the computer has made from bandOptions
 var correctGuesses = []; //tracks the correct letters the user has already guess
 var remainingLetters; //number of correct letters the user has not guessed yet. Used to push to the html
 var incorrectGuesses;  // this is an empty array that will match the number of letters the user has guessed 
-var wins = 0
+var wins = 0;
 
-document.onload = alert("Let's test your 90s music knowledge. Here's a few hints: Choose from 90's bands or musicians. Letters and numbers count. You get 8 chances. Good luck!");
+alert("Let's test your 90s music knowledge. Here's a few hints: Choose from 90's bands or musicians. Letters and numbers count. You get 8 chances. Good luck!");
 
 function rungame() {
 // this is the selection of bands available for the computer to select from. Purposely chose none with spaces so I didn't have to deal withthat
