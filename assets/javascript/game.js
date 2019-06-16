@@ -1,3 +1,6 @@
+
+
+
 var bandOptions; //options the computer can choose from
 var keysToPress; //established that only letters can be pressed
 var computerSelection; //the selection the computer has made from bandOptions
